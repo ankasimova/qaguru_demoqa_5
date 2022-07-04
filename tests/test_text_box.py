@@ -41,9 +41,7 @@ def test_fill_in_form():
     browser.element('#city').element('#react-select-4-input').type('Delhi').press_enter()
 
     browser.element('#submit').perform(command.js.click)
-
-    a = browser.element("table.table tbody").text
-    print(a)
+    
 
     # ASSERT
     browser.all('table tr').element(1).should(have.text('Lika Kasimova'))
