@@ -48,7 +48,7 @@ def test_fill_in_form():
     browser.all('table tr').element(2).should(have.text('test@gmail.com'))
     browser.all('table tr').element(3).should(have.text('Female'))
     browser.all('table tr').element(4).should(have.text('9101111111'))
-    browser.all('table tr').element(5).should(have.text('04 July,2022'))
+    browser.all('table tr').element(5).should(have.text('29 June,1996'))
     browser.all('table tr').element(6).should(have.text('Computer Science, Maths'))
     browser.all('table tr').element(7).should(have.text('Sports, Reading, Music'))
     browser.all('table tr').element(8).should(have.text('dog.png'))
