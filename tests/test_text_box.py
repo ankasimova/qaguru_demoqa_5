@@ -16,6 +16,7 @@ def test_fill_in_form():
     browser.open('/automation-practice-form')
     browser.all('[id*="Advertisement"]').perform(command.js.remove)
     browser.all('[id*="google_ads"]').perform(command.js.remove)
+    browser.all('#fixedban').perform(command.js.remove)
 
     browser.element('#firstName').type(first_name)
     browser.element('#lastName').type(last_name)
@@ -25,7 +26,11 @@ def test_fill_in_form():
 
     browser.element('#userNumber').type(telephone_number)
 
-    browser.element('#dateOfBirthInput').perform(command.js.set_value(date_of_birth))
+    browser.element('#dateOfBirthInput').click()
+    browser.element('.react-datepicker__year-select').all('option').element_by(have.exact_text('1990')).click()
+    browser.element('.react-datepicker__month-select').all('option').element_by(have.exact_text('May')).click()
+    browser.element('.react-datepicker__day--020').click()
+    # browser.element('#dateOfBirthInput').perform(command.js.set_value(date_of_birth)).press_enter()
 
     browser.element('#subjectsInput').type('Computer Science').press_enter().type('Math').press_enter()
 
@@ -48,7 +53,7 @@ def test_fill_in_form():
     browser.all('table tr').element(2).should(have.text('test@gmail.com'))
     browser.all('table tr').element(3).should(have.text('Female'))
     browser.all('table tr').element(4).should(have.text('9101111111'))
-    browser.all('table tr').element(5).should(have.text('29 June,1996'))
+    browser.all('table tr').element(5).should(have.text('20 May,1990'))
     browser.all('table tr').element(6).should(have.text('Computer Science, Maths'))
     browser.all('table tr').element(7).should(have.text('Sports, Reading, Music'))
     browser.all('table tr').element(8).should(have.text('dog.png'))
@@ -56,4 +61,5 @@ def test_fill_in_form():
     browser.all('table tr').element(10).should(have.text('NCR Delhi'))
 
     time.sleep(5)
+
 
