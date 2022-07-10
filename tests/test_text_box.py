@@ -37,7 +37,13 @@ def test_fill_in_form():
     browser.element('[for="hobbies-checkbox-2"]').click()
     browser.element('[for="hobbies-checkbox-3"]').click()
 
-    browser.element('#uploadPicture').send_keys(os.path.abspath('../picture/dog.png'))
+    def resourse(path):
+        import qaguru_demoqa_5
+        qaguru_demoqa_5.__file__
+        from pathlib import Path
+        return str(Path(qaguru_demoqa_5.__file__).parent.parent.joinpath(f'picture/{path}'))
+
+    browser.element('#uploadPicture').send_keys(resourse('dog.png'))
 
     browser.element('#currentAddress').type('World city')
 
