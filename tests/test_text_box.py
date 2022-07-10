@@ -1,14 +1,16 @@
+import os.path
 import time
 
-from selene import have, command
+from selene import have, be, command
 from selene.support.shared import browser
-
-from qaguru_demoqa_5.controls.Upload_picture import resourse
+import pytest
 
 first_name = 'Lika'
 last_name = 'Kasimova'
 email = 'test@gmail.com'
 telephone_number = '9101111111'
+date_of_birth = '29 Jun 1996'
+
 
 def test_fill_in_form():
     browser.open('/automation-practice-form')
@@ -35,7 +37,7 @@ def test_fill_in_form():
     browser.element('[for="hobbies-checkbox-2"]').click()
     browser.element('[for="hobbies-checkbox-3"]').click()
 
-    browser.element('#uploadPicture').send_keys(resourse('dog.png'))
+    browser.element('#uploadPicture').send_keys(os.path.abspath('../picture/dog.png'))
 
     browser.element('#currentAddress').type('World city')
 
