@@ -3,7 +3,7 @@ from pathlib import Path
 import qaguru_demoqa_5
 
 
-def resourse(path):
+def resource(path):
     import qaguru_demoqa_5
     qaguru_demoqa_5.__file__
     from pathlib import Path
