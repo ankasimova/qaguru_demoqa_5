@@ -30,7 +30,6 @@ def test_fill_in_form():
     browser.element('.react-datepicker__year-select').all('option').element_by(have.exact_text('1990')).click()
     browser.element('.react-datepicker__month-select').all('option').element_by(have.exact_text('May')).click()
     browser.element('.react-datepicker__day--020').click()
-    # browser.element('#dateOfBirthInput').perform(command.js.set_value(date_of_birth)).press_enter()
 
     browser.element('#subjectsInput').type('Computer Science').press_enter().type('Math').press_enter()
 
