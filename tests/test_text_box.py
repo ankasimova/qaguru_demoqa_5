@@ -36,7 +36,7 @@ def test_fill_in_form():
     browser.element('[for="hobbies-checkbox-2"]').click()
     browser.element('[for="hobbies-checkbox-3"]').click()
 
-    browser.element('#uploadPicture').send_keys(resource('dog.png'))
+    browser.element('#uploadPicture').send_keys(os.path.abspath('../picture/dog.png'))
 
     browser.element('#currentAddress').type('World city')
 
